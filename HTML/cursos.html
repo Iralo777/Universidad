@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script type="module" src="./js/scriptCurso.js"></script> <!-- Enlace al archivo JavaScript -->
+    <script type="module" src="./js/utiles.js"></script> <!-- Enlace al archivo JavaScript --></head>
+<body>  
+    
+    <div class="fondo">
+        <div class="contenedor-principal">
+            <!-- ⬇️⬇️🟢 empieza cabecera -->
+            <header class="cabecera">
+                <img src="img/cabecera.jpeg" alt="Escuela de Magia Logo" class="logo">
+            </header>
+            <!-- ⬆️⬆️🛑 termina cabecera -->
+            <!-- ⬇️⬇️🟢 empieza main -->
+            <main class="contenido">
+                <h1 class="contenido">Gestión de Grados y Asignaturas</h1>
+                <div class="sinCabecero"></div>
+                <!-- 🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩 -->
+                <div>
+                    <form id="formGrados" class="formulario-grados">
+                        <select id="grado" name="grado">
+                            <option value="">-- Selecciona un grado --</option>
+                        </select>
+                        <button type="button" id="buscar" onclick="cargarAsignaturas()">Buscar</button>
+                    </form>
+                    
+                    <table id="tablaAsignaturas" class="tabla-asignaturas">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Créditos</th>
+                                <th>Curso</th>
+                                <th>Cuatrimestre</th>
+                                <th>Profesor</th>
+                            </tr>
+                        </thead>
+                        <tbody id="contenidoTabla"></tbody>
+                            <!-- Las asignaturas se cargarán aquí dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            <!-- 🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩 -->
+            </main>
+            <div class="volverPaginaPrincipal"></div>
+                <a href="index.html" class="enlace-magico">Volver a la página principal</a>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

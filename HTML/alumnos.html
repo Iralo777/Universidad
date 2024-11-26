@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script type="module" src="./js/scriptAlumno.js"></script> <!-- Enlace al archivo JavaScript -->
+    <script type="module" src="./js/utiles.js"></script> <!-- Enlace al archivo JavaScript --></head>
+<body>  
+    
+    <div class="fondo">
+        <div class="contenedor-principal">
+            <!-- ⬇️⬇️🟢 empieza cabecera -->
+            <header class="cabecera">
+                <img src="img/cabecera.jpeg" alt="Escuela de Magia Logo" class="logo">
+            </header>
+            <!-- ⬆️⬆️🛑 termina cabecera -->
+            <!-- ⬇️⬇️🟢 empieza main -->
+            <main class="contenido">
+                <h1 class="contenido">Buscar alumnos</h1>
+                <div class="sinCabecero"></div>
+                <!-- 🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩 -->
+                <div>
+                    <form id="formAlumnos" class="formulario-alumnos">
+                        <input type="text" id="idNif" placeholder="-- ID o NIF --" />
+                        <input type="text" id="nombre" placeholder="-- Nombre --" />
+                        <button type="button" id="buscar" onclick="buscarAlumnos()">Buscar</button>
+                    </form> 
+                    
+                    <table id="tablaAlumnos" class="tabla-alumnos">
+                        <thead>
+                            <tr>
+                                <th>Id</th>
+                                <th>Nif</th>
+                                <th>Nombre</th>
+                                <th>Apellido1</th>
+                                <th>Apellido2</th>
+                                <th>Ciudad</th>
+                                <th>Sexo</th>
+
+                            </tr>
+                        </thead>
+                        <tbody id="resultados"></tbody>
+                            <!-- Las asignaturas se cargarán aquí dinámicamente -->
+                        </tbody>
+                    </table>
+                </div>
+            <!-- 🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩 -->
+            </main>
+            <div class="volverPaginaPrincipal"></div>
+                <a href="index.html" class="enlace-magico">Volver a la página principal</a>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profesores</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script type="module" src="./js/scriptProfesor.js"></script> <!-- Enlace al archivo JavaScript -->
+    <script type="module" src="./js/utiles.js"></script> <!-- Enlace al archivo JavaScript -->
+</head>
+<body>  
+    <div class="fondo">
+        <div class="contenedor-principal">
+            <!-- ⬇️⬇️🟢empieza CABECERA 🟢⬇️⬇️ -->
+            <header class="cabecera">
+                <img src="img/cabecera.jpeg" alt="Escuela de Magia Logo" class="logo">
+            </header>
+
+            <!-- ⬇️⬇️🟢 empieza MAIN 🟢⬇️⬇️ -->
+            <main class="contenido">
+                <h1 class="contenido">Gestión de Profesores</h1>
+                <div class="sinCabecero">
+<!-- 🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩 -->
+                    <div>
+                        <form id="formFiltro">
+                            <input type="text" id="nombre" placeholder="Nombre" />
+                            <input type="text" id="apellido1" placeholder="Apellido 1" />
+                            <select id="sexo">
+                                <option value="">Sexo</option>
+                                <option value="H">Hombre</option>
+                                <option value="M">Mujer</option>
+                            </select>
+                            <select id="departamento">
+                            <!-- ⬇️el type button evita la recarga de la pagina cuando le de al boton⬇️ -->
+                            </select>
+                            <button type="button" onclick="buscarProfesor()">Buscar</button>
+                        </form>
+                    </div>
+                    <div>
+                        <table id="tablaProfesores">
+                            <thead>
+                                <tr>
+                                    <th>NIF</th>
+                                    <th>Nombre</th>
+                                    <th>Apellido 1</th>
+                                    <th>Apellido 2</th>
+                                    <th>Ciudad</th>
+                                    <th>Sexo</th>
+                                    <th>Departamento</th>
+                                </tr>
+                            </thead>
+                            <tbody id="resultados"></tbody>
+                        </table>
+                    </div>
+                </div>
+            </main>
+            <div class="volverPaginaPrincipal">
+                <a href="index.html" class="enlace-magico">Volver a la página principal</a>
+            </div>
+        </div>    
+    </div>
+</body>
+</html>

@@ -1,0 +1,671 @@
+/* Fondo con GIF y degradado fijo */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-size: cover; /* Asegura que el GIF cubra todo el fondo */
+}
+
+/* fondo de color verde */
+.fondo {
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.5), #0c6c6480), url('../img/Smoke\ \(gif\).gif') no-repeat center center fixed; /* Degradado y GIF */
+    background-size: cover;
+    background-position: center center;
+  }
+
+/* Contenedor principal con fondo negro y algo de transparencia */
+.contenedor-principal {
+    position: absolute; /* Hacerlo absoluto para que se mantenga fijo en la pantalla */
+    top: 0; /* Distancia desde el encabezado */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7); /* Negro con transparencia */
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 1; /* Asegurarse de que esté sobre el fondo */
+    overflow: auto; /* Asegura que el contenido se pueda desplazar */
+}
+/* Contenedor principal con fondo negro y algo de transparencia */
+.contenedor-principal {
+    position: relative;
+    background: #072130;
+    width: 80%;
+    max-width: 1200px;
+    margin: auto;
+    padding: 0px;
+    color: #656449ef;
+    text-align: center;
+    border-radius: 10px;
+    z-index: 1;
+    overflow-y: hidden; /* Oculta el scroll vertical */
+
+    /* 🔧como funciona el box shadow
+        box-shadow: 0  Desplazamiento horizontal , 
+                    0  Desplazamiento vertical , 
+                    20px  Difuminado , 
+                    rgba(170, 54, 0, 0.5)  Color translúcido ; */
+    box-shadow: 0 0 20px rgba(12, 108, 100, 0.5); /* Resplandor mágico */
+    animation: aparecer 1s ease-in-out;
+
+}
+
+/* Animación de entrada */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Encabezado */
+.cabecera {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: -30px;
+}
+
+.logo {
+    max-width: 100%;
+    margin-bottom: 20px;
+    transition: transform 0.3s;
+}
+/* Cursores */
+select, body, button, a, .checkbox, label{
+    cursor: url('../img/cursor.png'), auto !important; /* 'auto' es el cursor predeterminado por si falla la imagen //aparte, le tengo que meter el important, por que al tener una locica compleja en el evento, no funciona */ 
+}
+input {
+    cursor: url('../img/cursorClick.png'), auto ; /* Aplica el cursor personalizado a botones, inputs y selects */
+}
+
+/* Estilos para los enlaces y las imágenes dentro de ellos */
+.enlaces {
+    display: flex;
+    gap: 40px; /* Espacio entre los enlaces */
+    justify-content: center;
+    flex-wrap: wrap; /* Asegura que las imágenes se ajusten en pantallas más pequeñas */
+    margin-top: 30px; /* Espacio adicional en la parte superior */
+}
+
+.enlace img {
+    width: 200px; /* Tamaño de las imágenes */
+    height: auto; /* Mantiene la proporción de las imágenes */
+    border-radius: 0; /* Sin bordes redondeados */
+    transition: transform 0.3s ease, filter 0.3s ease; /* Transición suave */
+    margin: 0 10px; /* Margen a la izquierda y derecha de las imágenes */
+    filter: grayscale(100%); /* Inicia las imágenes en blanco y negro */
+}
+
+/* Cuando el ratón está sobre una imagen */
+.enlace img:hover {
+    transform: scale(1.1); /* Aumentar el tamaño al pasar el ratón */
+    filter: grayscale(0%); /* La imagen se vuelve a color */
+}
+
+/* Diseño responsive */
+@media (max-width: 768px) {
+    .enlaces {
+        gap: 30px; /* Menos espacio en pantallas más pequeñas */
+    }
+
+    .enlace img {
+        width: 180px; /* Imágenes más pequeñas en pantallas pequeñas */
+        margin: 0 8px; /* Margen menor en pantallas pequeñas */
+    }
+}
+
+/* Contenedor que agrupa la imagen de profesores y el GIF de brillo */
+.imagen-con-brillo {
+    position: relative; /* Necesario para posicionar el GIF dentro */
+    display: inline-block;
+}
+
+.imagen-con-brillo img {
+    width: 200px; /* Tamaño de la imagen */
+    height: auto;
+    filter: grayscale(100%); /* Asegura que la imagen esté en escala de grises al inicio */
+    transition: filter 0.3s ease; /* Transición para el cambio de color */
+}
+
+/* Brillo sobre la imagen */
+.brillo {
+    position: absolute; /* Posiciona el brillo sobre la imagen */
+    top: 33px;
+    left: 30px;
+    width: 64% !important;
+    height: 75% !important;
+    object-fit: cover; /* Asegura que el GIF cubra la imagen */
+    border-radius: 90% !important; /* Esto hace que el GIF tenga forma ovalada */
+    opacity: 0; /* Comienza invisible */
+    pointer-events: none; /* Evita que el GIF interfiera con los clics */
+    transition: opacity 0.3s ease; /* Transición suave para mostrar/ocultar */
+}
+
+/* Cuando el ratón está sobre la imagen */
+.imagen-con-brillo:hover .brillo {
+    opacity: 0.1; /* Muestra el brillo cuando se pasa el ratón */
+}
+
+.imagen-con-brillo:hover img {
+    filter: grayscale(0%); /* Hace que la imagen vuelva a color */
+}
+
+
+
+
+
+
+/* Contenido principal */
+.contenido h1 {
+    font-size: 6em;
+    margin: 10px 0;
+    font-family: 'harry', sans-serif;
+    background: repeating-linear-gradient(90deg, #6f673a, #dccf8a, #6f673a); /* Tonos dorados */   
+     -webkit-background-clip: text; /*esto lo que hace es darle como un recorte de capa sobre el texto, asi que el fondo solo se aplica en la letra */
+    color: transparent; /* Hace el texto transparente para mostrar el gradiente */
+    background-size: 200%; /* Hace que el gradiente se repita */
+    animation: flotar 3s infinite alternate ease-in-out;
+    
+}
+/* ⚠️⚠️⚠️⚠️⚠️si decido ponerlo abajo y no sobre la imagen... era de 0 a -10 */
+@keyframes flotar {
+    from {
+        transform: translateY(-350px);
+    }
+    to {
+        transform: translateY(-250px);
+    }
+}
+
+
+
+/* .contenido p {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    animation: fadeIn 1.5s ease-in-out;
+} */
+
+/* Efecto dorado en el párrafo */
+.texto-dorado {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+    font-family: 'simple';
+    background: linear-gradient(90deg, #4e835c, #def6a9, #467553);
+    -webkit-background-clip: text;
+    color: transparent;
+    background-size: 200%;
+    animation: fadeIn 1s ease-in-out, gold-shine 3s infinite linear;
+}
+
+
+/* Animación de aparición */
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+/* Diseño responsive */
+@media (max-width: 768px) {
+    .logo {
+        max-width: 120px;
+    }
+    
+    .enlaces a img {
+        width: 80px;
+    }
+
+    .contenedor-principal {
+        padding: 10px;
+    }
+
+    .contenido h1 {
+        font-size: 2em;
+    }
+
+    .contenido p {
+        font-size: 1em;
+    }
+}
+
+.sinCabecero{
+    margin-top: -116px;
+}
+/* ■■■■■■■■■fuentes de letra■■■■■■■■■■■■■ */
+/* Estilo de letra del h1 */
+@font-face {
+    font-family: 'harry'; /* El nombre de la fuente */
+    src: url('../fuentes/HARRYP__.TTF') format('truetype'); /* Ruta al archivo de fuente */
+}
+
+@font-face {
+    font-family: 'simple'; /* El nombre de la fuente */
+    src: url('../fuentes/Fragmentcore.otf') format('truetype'); /* Ruta al archivo de fuente */
+}
+@font-face {
+    font-family: 'prueba'; /* El nombre de la fuente */
+    src: url('../fuentes/NixieOne.ttf') format('truetype'); /* Ruta al archivo de fuente */
+}
+
+/* ⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️⚠️css formulario */
+/* Estilo para el formulario */
+#formFiltro {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #333;
+    width: 80%;
+    color: #fff;
+}
+
+#formFiltro input,
+#formFiltro select {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 150px;
+    background-color: #444;
+    color: white;
+}
+
+#formFiltro button {
+    padding: 10px 20px;
+    background-color: #1e8b7d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#formFiltro button:hover {
+    background-color: #1a7568;
+}
+
+/* Estilo para la tabla */
+#tablaProfesores {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#tablaProfesores thead {
+    background-color: #1e8b7d;
+    color: white;
+    font-family: 'prueba';
+    font-variant: small-caps;
+}
+
+#tablaProfesores th,
+#tablaProfesores td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #555;
+    }
+
+    #tablaProfesores td{
+        color: #eff7d6;
+        font-family: 'prueba';  
+    }
+
+
+
+#tablaProfesores th {
+    font-weight: bold;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    #formFiltro {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    #tablaProfesores {
+        width: 100%;
+    }
+}
+.volverPaginaPrincipal{
+    margin: 50px 0; /* Espacio superior e inferior */
+
+}
+
+/* Estilo para el enlace mágico */
+.enlace-magico {
+    font-size: 20px; 
+    font-weight: bold;
+    color: #cad89c; /* Verde brillante */
+    text-decoration: none; /* Quitar subrayado */
+    font-family: 'harry';
+    padding: 10px 20px;
+    border: 2px solid #cad89c; /* Borde verde */
+    border-radius: 5px;
+    background: #00000080; /* Fondo negro con algo de transparencia */
+    box-shadow: 0 0 10px #76b784, 0 0 15px #76b784; /* Resplandor verde */
+    transition: all 0.3s ease-in-out;
+    
+  }
+  
+  /* Efecto al pasar el mouse */
+  .enlace-magico:hover {
+    color: #f3fbbd; /* Texto blanco cuando se pasa el mouse */
+    background: #000000b3; /* Fondo más oscuro al pasar el mouse */
+    border-color: #cad89c; /* Borde verde más brillante */
+    box-shadow: 0 0 20px #cad89c, 0 0 30px #cad89c; /* Resplandor más intenso */
+    transform: scale(1.1); /* Agrandar el enlace */
+  }
+
+  /* ■■■■■■■■■■■■■■■■■■■■■ CURSOS ■■■■■■■■■■■■■■■■■■■■■*/
+  
+  #formGrados {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #333;
+    width: 40%;
+    color: #fff;
+}
+  
+  #formGrados select {
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 400px;
+    background-color: #444;
+    color: white;
+}
+
+#formGrados button {
+    padding: 10px 20px;
+    background-color: #1e8b7d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#formGrados button:hover {
+    background-color: #1a7568;
+}
+
+/* Estilo para la tabla */
+#tablaAsignaturas {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#tablaAsignaturas thead {
+    background-color: #1e8b7d;
+    color: white;
+    font-family: 'prueba';
+    font-variant: small-caps;
+}
+
+#tablaAsignaturas th,
+#tablaAsignaturas td {  
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #555;
+    }
+
+    #tablaAsignaturas td{
+        color: #eff7d6;
+        font-family: 'prueba';  
+    }
+
+
+
+#tablaAsignaturas th {
+    font-weight: bold;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    #formGrados {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    #tablaAsignaturas {
+        width: 100%;
+    }
+}
+
+  /* ■■■■■■■■■■■■■■■■■■■■■ ALUMNOS ■■■■■■■■■■■■■■■■■■■■■*/
+
+  #formAlumnos {
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #333;
+    width: 40%;
+    color: #fff;
+}
+
+  #formAlumnos input{
+      padding: 10px;
+      margin: 5px;
+      border: 1px solid #555;
+      border-radius: 4px;
+      font-size: 14px;
+      width: 150px;
+      background-color: #444;
+      color: white;
+  }
+
+#formAlumnos button {
+    padding: 10px 20px;
+    background-color: #1e8b7d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#formAlumnos button:hover {
+    background-color: #1a7568;
+}
+
+/* Estilo para la tabla */
+#tablaAlumnos {
+    width: 80%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+#tablaAlumnos thead {
+    background-color: #1e8b7d;
+    color: white;
+    font-family: 'prueba';
+    font-variant: small-caps;
+}
+
+#tablaAlumnos th,
+#tablaAlumnos td {  
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #555;
+    }
+
+    #tablaAlumnos td{
+        color: #eff7d6;
+        font-family: 'prueba';  
+    }
+
+
+
+#tablaAlumnos th {
+    font-weight: bold;
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+    #formAlumnos {
+        flex-direction: column;
+        width: 90%;
+    }
+
+    #tablaAlumnos {
+        width: 100%;
+    }
+}
+
+  /* ■■■■■■■■■■■■■■■■■■■■■ GESTION ■■■■■■■■■■■■■■■■■■■■■*/
+
+
+#formMatricula {
+    display: flex;
+    justify-content: center; /* Centrado horizontal */
+    align-items: center; /* Centrado vertical */
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #444;
+    border-radius: 8px;
+    background-color: #333;
+    width: 80%;
+    color: #fff;
+}
+
+  #formMatricula input{
+      padding: 10px;
+      margin: 5px;
+      border: 1px solid #555;
+      border-radius: 4px;
+      font-size: 14px;
+      width: 100px;
+      background-color: #444;
+      color: white;
+  }
+#grado{
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 400px;
+    background-color: #444;
+    color: white;
+}
+#curso-escolar{
+    padding: 10px;
+    margin: 5px;
+    border: 1px solid #555;
+    border-radius: 4px;
+    font-size: 14px;
+    width: 200px;
+    background-color: #444;
+    color: white;
+}
+
+#formMatricula button {
+    padding: 10px 20px;
+    background-color: #1e8b7d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+#formMatricula button:hover {
+    background-color: #1a7568;
+}
+
+.boton {
+    padding: 10px 20px;
+    background-color: #1e8b7d;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* ASIGNATURAS❌📛🛑❌⭕⭕❌📛🛑 */
+/* Contenedor principal de asignaturas */
+#contenedorAsignaturas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 20px;
+    background: linear-gradient(135deg, #1c1c3c 40%, #272755 100%);
+    border: 2px solid #1a7568;
+    border-radius: 12px;
+    box-shadow: 0 0 20px #1a7568;
+  }
+  
+  /* Contenedor individual del checkbox */
+  .checkbox-container {
+    display: flex;
+    align-items: center;
+    background-color: rgba(44, 44, 66, 0.8);
+    border: 1px solid #61d2c1;
+    border-radius: 8px;
+    padding: 8px 12px;
+    transition: background-color 0.3s ease, transform 0.2s;
+    cursor: url('../img/cursor.png'), auto !important; /* Aplica el cursor aquí también */
+    
+  }
+  
+  /* Estilo del checkbox */
+  .checkbox {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    accent-color: #61d2c1; /* Color mágico del checkbox */
+  }
+  
+  /* Estilo del texto de la etiqueta */
+  .checkbox-container label {
+    color: #eaffef;
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 16px;
+    letter-spacing: 1px;
+  }
+  
+  /* Efectos de hover */
+  .checkbox-container:hover {
+    background-color: #1a7568;
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px #61d2c1;
+  }
+  
+  /* Efectos de checkbox seleccionado */
+  .checkbox:checked + label {
+    color: #c1ffdf;
+    font-weight: bold;
+  }
+  

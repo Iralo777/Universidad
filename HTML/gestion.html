@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Matricular</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <script type="module" src="./js/scriptGestion.js"></script> <!-- Enlace al archivo JavaScript -->
+    <script type="module" src="./js/utiles.js"></script> <!-- Enlace al archivo JavaScript --></head>
+<body>  
+    
+    <div class="fondo">
+        <div class="contenedor-principal">
+            <!-- ⬇️⬇️🟢 empieza cabecera -->
+            <header class="cabecera">
+                <img src="img/cabecera.jpeg" alt="Escuela de Magia Logo" class="logo">
+            </header>
+            <!-- ⬆️⬆️🛑 termina cabecera -->
+            <!-- ⬇️⬇️🟢 empieza main -->
+            <main class="contenido">
+                <h1 class="contenido">Matricular alumnos</h1>
+                <div class="sinCabecero"></div>
+                <!-- 🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩aqui trabajo🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩 -->
+                
+                <form id="formMatricula">
+                    <!-- Campo de ID Alumno -->
+                        <input type="text" id="id_alumno" placeholder="ID Alumno">
+                    
+                    <!-- Campo de Grados -->
+                        <select id="grado">
+                            <option value="">Seleccionar Grado</option>
+                        </select>
+                        <select id="curso-escolar">
+                            <option value="">Seleccionar Curso Escolar</option>
+                        </select>
+                        <button type="button" id="btn-mostrar" class="boton" onclick="cargarAsignaturas()">Mostrar</button>
+                </form>
+                <!-- Campo de Asignaturas (se desplegará después de seleccionar el grado) -->
+                <div id="asignaturasLista">
+                    <label for="asignaturas">Selecciona las asignaturas</label>
+                    <!-- Las asignaturas se mostrarán aquí dinámicamente -->
+                </div>
+                <!-- Botón de Matricular -->
+                <button type="button" class="boton" onclick="matricularAlumno()" >Matricular</button>
+                <!-- 🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩🚩 -->
+            </main>
+            <div class="volverPaginaPrincipal"></div>
+                <a href="index.html"  class="enlace-magico">Volver a la página principal</a>
+            </div>
+        </div>
+    </div>
+    </body>
+</html>
