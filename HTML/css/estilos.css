@@ -53,7 +53,8 @@ body, html {
                     20px  Difuminado , 
                     rgba(170, 54, 0, 0.5)  Color translúcido ; */
     box-shadow: 0 0 20px rgba(12, 108, 100, 0.5); /* Resplandor mágico */
-    animation: aparecer 1s ease-in-out;
+    animation: aparecer 1s ease-in-out,
+               resplandor 2s infinite ease-in-out;
 
 }
 
@@ -68,7 +69,17 @@ body, html {
         transform: scale(1);
     }
 }
-
+@keyframes resplandor {
+    0% {
+        box-shadow: 0 0 20px rgba(46, 130, 147, 0.777);
+    }
+    50% {
+        box-shadow: 0 0 40px rgba(177, 224, 202, 0.8);
+    }
+    100% {
+        box-shadow: 0 0 20px rgba(23, 245, 227, 0.5);
+    }
+}
 /* Encabezado */
 .cabecera {
     display: flex;
@@ -89,6 +100,7 @@ select, body, button, a, .checkbox, label{
 input {
     cursor: url('../img/cursorClick.png'), auto ; /* Aplica el cursor personalizado a botones, inputs y selects */
 }
+
 
 /* Estilos para los enlaces y las imágenes dentro de ellos */
 .enlaces {
@@ -163,21 +175,15 @@ input {
 }
 
 
-
-
-
-
 /* Contenido principal */
 .contenido h1 {
     font-size: 6em;
     margin: 10px 0;
     font-family: 'harry', sans-serif;
-    background: repeating-linear-gradient(90deg, #6f673a, #dccf8a, #6f673a); /* Tonos dorados */   
-     -webkit-background-clip: text; /*esto lo que hace es darle como un recorte de capa sobre el texto, asi que el fondo solo se aplica en la letra */
-    color: transparent; /* Hace el texto transparente para mostrar el gradiente */
-    background-size: 200%; /* Hace que el gradiente se repita */
-    animation: flotar 3s infinite alternate ease-in-out;
-    
+    color: #dccf8a;
+    -webkit-animation: text-shadow-drop-center 1s infinite alternate both,
+                       flotar 3s infinite alternate ease-in-out;
+
 }
 /* ⚠️⚠️⚠️⚠️⚠️si decido ponerlo abajo y no sobre la imagen... era de 0 a -10 */
 @keyframes flotar {
@@ -189,6 +195,16 @@ input {
     }
 }
 
+ 
+@keyframes text-shadow-drop-center {
+0% {
+    text-shadow: 0 0 3 #0011ff77;
+}
+100% {
+    text-shadow: 0 0 30px rgba(255, 255, 189, 0.673);
+}
+}
+  
 
 
 /* .contenido p {
@@ -285,19 +301,7 @@ input {
     color: white;
 }
 
-#formFiltro button {
-    padding: 10px 20px;
-    background-color: #1e8b7d;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
 
-#formFiltro button:hover {
-    background-color: #1a7568;
-}
 
 /* Estilo para la tabla */
 #tablaProfesores {
@@ -361,7 +365,7 @@ input {
     background: #00000080; /* Fondo negro con algo de transparencia */
     box-shadow: 0 0 10px #76b784, 0 0 15px #76b784; /* Resplandor verde */
     transition: all 0.3s ease-in-out;
-    
+    margin: 50px 0
   }
   
   /* Efecto al pasar el mouse */
@@ -399,19 +403,7 @@ input {
     color: white;
 }
 
-#formGrados button {
-    padding: 10px 20px;
-    background-color: #1e8b7d;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
 
-#formGrados button:hover {
-    background-color: #1a7568;
-}
 
 /* Estilo para la tabla */
 #tablaAsignaturas {
@@ -483,20 +475,6 @@ input {
       background-color: #444;
       color: white;
   }
-
-#formAlumnos button {
-    padding: 10px 20px;
-    background-color: #1e8b7d;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-#formAlumnos button:hover {
-    background-color: #1a7568;
-}
 
 /* Estilo para la tabla */
 #tablaAlumnos {
@@ -590,19 +568,6 @@ input {
     color: white;
 }
 
-#formMatricula button {
-    padding: 10px 20px;
-    background-color: #1e8b7d;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 16px;
-}
-
-#formMatricula button:hover {
-    background-color: #1a7568;
-}
 
 .boton {
     padding: 10px 20px;
@@ -616,6 +581,11 @@ input {
 .boton:hover {
     background-color: #1a7568;
 }
+#matricular{
+    margin: 20px;
+    position: relative;
+    margin-left: auto; /* Esto empuja el botón hacia la derecha */
+    margin-right: 100px; /* Ajusta este valor para dar espacio al borde */}
 
 /* ASIGNATURAS❌📛🛑❌⭕⭕❌📛🛑 */
 /* Contenedor principal de asignaturas */
@@ -640,7 +610,6 @@ input {
     padding: 8px 12px;
     transition: background-color 0.3s ease, transform 0.2s;
     cursor: url('../img/cursor.png'), auto !important; /* Aplica el cursor aquí también */
-    
   }
   
   /* Estilo del checkbox */
@@ -672,3 +641,6 @@ input {
     font-weight: bold;
   }
   
+  #asignaturasLista, #matricular {
+    display: none;
+}

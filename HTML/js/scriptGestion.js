@@ -90,7 +90,7 @@ function cargarAsignaturas() {
           // Verificar que la respuesta contenga las asignaturas
           if (data.data && Array.isArray(data.data) && data.data.length > 0) {
               // Limpiar el contenedor antes de agregar las nuevas asignaturas
-              contenedorAsignaturas.innerHTML = "<label for='asignaturas'>Selecciona las asignaturas</label>";
+              contenedorAsignaturas.innerHTML = "<label class='texto-dorado' for='asignaturas'>Selecciona las asignaturas</label>";
 
               // Iterar sobre las asignaturas y mostrar un checkbox para cada una
               data.data.forEach((asignatura) => {
@@ -120,9 +120,14 @@ function cargarAsignaturas() {
                   // Añadir el contenedor al contenedor principal
                   contenedorAsignaturas.appendChild(contenedorCheckbox);
               });
+              //Dar visibilidad a contenedorasignaturas y boton
+              contenedorAsignaturas.style.display = "block";
+              matricular.style.display = "block";
           } else {
               // Si no hay asignaturas
-              contenedorAsignaturas.innerHTML = "<p>No se encontraron asignaturas para este grado.</p>";
+              contenedorAsignaturas.innerHTML = "<p class='texto-dorado'>No se encontraron asignaturas para este grado.</p>";
+              contenedorAsignaturas.style.display = "block";
+              matricular.style.display = "none";
           }
       })
       .catch((error) => {

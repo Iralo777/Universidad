@@ -6,6 +6,8 @@ const urlAlumno=servidor+"alumno";
 const urlGestion=servidor+"gestion";
 
 
+
+
 export{
     urlProfesor,
     urlCurso,
