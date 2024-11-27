@@ -4,7 +4,15 @@ const helper = require('../helper');
 const config = require('../config');
 
 // ■■■■■■■■■■■ Obtener alumno desde id/nif/nombre ■■■■■■■■■■■
-
+/**
+ * Obtiene un alumno basado en su ID, NIF o nombre.
+ * 
+ * @async
+ * @function alumnoIdNif
+ * @param {string|number} idNif - El ID o NIF del alumno para buscar.
+ * @param {string} [nombre] - El nombre del alumno para búsqueda parcial. Es opcional.
+ * @returns {Promise<Object>} Un objeto con los datos del alumno o un array vacío si no se encuentra.
+ */
 async function alumnoIdNif(idNif, nombre){
     console.log("■■■■■■■alumnoIdNif■■■■■■■");
 
@@ -35,6 +43,13 @@ async function alumnoIdNif(idNif, nombre){
   }
 
 // ■■■■■■■■■■■ Verificar nif ■■■■■■■■■■■ para descartar si es nif o id
+/**
+ * Verifica si un NIF es válido (formato de 8 dígitos seguidos de una letra).
+ * 
+ * @function esDNIValido
+ * @param {string} dni - El NIF que se quiere verificar.
+ * @returns {boolean} `true` si el NIF es válido, `false` si no lo es.
+ */
   function esDNIValido(dni) { //dni es un nombre random que se le pone
 
     const regex = /^[0-9]{8}[A-Za-z]$/; 
