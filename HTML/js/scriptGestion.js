@@ -157,9 +157,9 @@ function matricularAlumno(){
   checkboxes.forEach(checkbox => {//recorro como si fuera un for los checkbox guardados
     const idAsignatura = checkbox.value; //segun vaya encontrando uno, pilla el valor que encuentra
     matriculas.push({//empujo el array creado arriba 
-        idAlumno: idAlumno,
-        idAsignatura: idAsignatura,
-        idCurso: idCurso
+        id_alumno: idAlumno,
+        id_asignatura: idAsignatura,
+        id_curso_escolar: idCurso
     });
   });
   

@@ -613,6 +613,9 @@ input {
     cursor: pointer;
     font-size: 16px;
 }
+.boton:hover {
+    background-color: #1a7568;
+}
 
 /* ASIGNATURAS❌📛🛑❌⭕⭕❌📛🛑 */
 /* Contenedor principal de asignaturas */
