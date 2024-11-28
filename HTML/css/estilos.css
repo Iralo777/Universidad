@@ -1,10 +1,9 @@
-/* Fondo con GIF y degradado fijo */
 body, html {
     margin: 0;
     padding: 0;
     height: 100%;
     font-family: Arial, sans-serif;
-    background-size: cover; /* Asegura que el GIF cubra todo el fondo */
+
 }
 
 /* fondo de color verde */
@@ -17,22 +16,7 @@ body, html {
     background-position: center center;
   }
 
-/* Contenedor principal con fondo negro y algo de transparencia */
-.contenedor-principal {
-    position: absolute; /* Hacerlo absoluto para que se mantenga fijo en la pantalla */
-    top: 0; /* Distancia desde el encabezado */
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7); /* Negro con transparencia */
-    width: 100%;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-    border-radius: 10px;
-    z-index: 1; /* Asegurarse de que esté sobre el fondo */
-    overflow: auto; /* Asegura que el contenido se pueda desplazar */
-}
+
 /* Contenedor principal con fondo negro y algo de transparencia */
 .contenedor-principal {
     position: relative;
@@ -643,4 +627,40 @@ input {
   
   #asignaturasLista, #matricular {
     display: none;
+}
+
+
+
+/* ■■■■■■■■■■■■■■■ cursor ■■■■■■■■■■■■■ */
+.blob-cursor__bg {
+    --blob-size: 10rem;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: auto;
+    bottom: auto;
+    display: block;
+    width: var(--blob-size);
+    height: var(--blob-size);
+    border-radius: 50%;
+    background-color: #ffffff;
+    opacity: 1;
+    -webkit-filter: blur(120px);
+    filter: blur(120px);
+    -webkit-animation: blobAnimation 2s linear infinite;
+    animation: blobAnimation 2s linear infinite;
+    z-index: 9999;
+    pointer-events: none;
+}
+
+@keyframes blobAnimation {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
 }

@@ -187,7 +187,27 @@ fetch(urlMatricula, {method: "POST",headers: {"Content-Type": "application/json"
   .then(resultado => {
       if (resultado) { 
           console.log("Matrícula exitosa:", resultado);
+          
           alert(`Matrícula completada con éxito. Total asignaturas matriculadas: ${matriculas.length}`);
+
+          // Crear el sonido
+        const sonidoExito = new Audio("./sonido/gryffindor.mp3"); // Reemplaza con la ruta correcta de tu archivo de sonido
+        sonidoExito.play(); // Reproducir el sonido
+
+        // Mostrar la ventana emergente con la imagen y texto, sin bloquear el sonido
+        Swal.fire({
+          title: '¡¡Gryffindor!!',
+          text: '¡Tu matrícula ha sido realizada con éxito!',
+          icon: 'success', // Icono de éxito
+          imageUrl: './img/grifindor.gif', // Ruta de la imagen que quieres mostrar
+          imageWidth: 400, // Ancho de la imagen
+          imageHeight: 200, // Altura de la imagen
+          imageAlt: 'Imagen de éxito', // Texto alternativo de la imagen
+          confirmButtonText: 'Cerrar', // Texto del botón de cierre
+          allowOutsideClick: false, // Evita que el usuario cierre el modal haciendo clic fuera
+          showConfirmButton: true, // Muestra el botón de cierre
+      });
+
           document.getElementById("formMatricula").reset();
           document.getElementById("asignaturasLista").innerHTML = "";
       }
